@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>템플릿 테스트</title>
+</head>
+<body>
+
+  <div>
+    <h3> - 파라미터 : {{ tempid }} </h3>
+    {% if not session.logged_in %}
+      <h3> <a href="{{ url_for('login_form') }}">로그인</a> 해주세요. </h3>
+    {% else %}
+      <h3> <a href="{{ url_for('logout') }}">로그아웃</a> </h3>
+    {% endif %}
+    <h3> - 사람들이 좋아하는 운동</h3>
+    {% for sport in sports %}
+        <h3>{{ sport }}</h3>
+      {% if sport == '축구' %}
+        <h5>{{ sport }}는 아닌데...</h5>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</body>
+</html>
